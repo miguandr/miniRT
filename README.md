@@ -81,7 +81,7 @@ sudo apt install libxext-dev libx11-dev
 ### Build
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/MiniRT.git
+git clone https://github.com/miguandr/miniRT.git
 cd MiniRT
 make
 ```
