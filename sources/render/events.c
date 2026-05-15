@@ -59,11 +59,11 @@ int	key_handle(int keysym, t_data *data)
 	return (0);
 }
 
-int	keyboard_exit(int keysym, t_data *data)
+int	keyboard_exit(int keysym, void *param)
 {
-	if (keysym == 0xFF1B)
+	if (keysym == XK_Escape)
 	{
-		free_memory(data);
+		free_memory((t_data *)param);
 		exit (0);
 	}
 	return (0);

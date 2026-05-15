@@ -119,8 +119,10 @@ void	free_memory(t_data *data)
 		if (data->mlx->window)
 			mlx_destroy_window(data->mlx->mlx, data->mlx->window);
 		if (data->mlx->mlx)
+		{
 			mlx_destroy_display(data->mlx->mlx);
-		free(data->mlx->mlx);
+			free(data->mlx->mlx);
+		}
 		free(data->mlx);
 	}
 	free_figures(data);

@@ -5,12 +5,24 @@ NAME = miniRT
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
+# OS detection
+OS := $(shell uname -s)
+
 # Minilibx
 MLX_DIR = minilibx/
-LIBS = -lXext -lX11 -lm -L $(MLX_DIR) -lmlx
-
 MLX_NAME = libmlx.a
 MLX = $(MLX_DIR)$(MLX_NAME)
+MLX_REPO = https://github.com/42Paris/minilibx-linux.git
+
+ifeq ($(OS), Darwin)
+	X11_INC = -I/opt/X11/include
+	X11_LIB = -L/opt/X11/lib
+	LIBS = $(X11_LIB) -lXext -lX11 -lm -L $(MLX_DIR) -lmlx
+else
+	X11_INC =
+	X11_LIB =
+	LIBS = -lXext -lX11 -lm -L $(MLX_DIR) -lmlx
+endif
 
 # Libft
 LIBFT_DIR = libft/
@@ -20,7 +32,8 @@ LIBFT = $(LIBFT_DIR)$(LIBFT_NAME)
 # Includes
 INC = -I ./includes/ \
       -I ./libft/ \
-      -I $(MLX_DIR)
+      -I $(MLX_DIR) \
+      $(X11_INC)
 
 # Source files
 SRC_DIR = sources/
@@ -66,9 +79,11 @@ $(OBJ_DIR):
 $(MLX):
 	@echo "Making MLX..."
 	@if [ ! -d "$(MLX_DIR)" ]; then \
-		git clone https://github.com/42Paris/minilibx-linux.git $(MLX_DIR); \
-      fi
-	@$(MAKE) -C $(MLX_DIR)
+		git clone $(MLX_REPO) $(MLX_DIR); \
+	fi
+	@if [ ! -f "$(MLX)" ]; then \
+		$(MAKE) -C $(MLX_DIR); \
+	fi
 	
 $(LIBFT):
 	@echo "Making Libft..."

@@ -28,9 +28,6 @@ static t_vector	calculate_ray_direction(t_data *data, int x, int y)
 	return (ray_direction);
 }
 
-//closest will be the first figure the ray impact
-//if there is no figure (distance = INFINITY), there will be no color (black)
-//otherwhise we call the function to add the color to the pixel
 static void	trace_ray_for_pixel(int x, int y, t_data *data)
 {
 	t_figure	closest;

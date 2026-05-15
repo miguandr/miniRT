@@ -136,6 +136,7 @@ typedef struct s_mlx
 	int			line_lenght;
 	int			endian;
 	int			bitpp;
+	int			rendered;
 }					t_mlx;
 
 typedef struct s_figure
@@ -190,7 +191,7 @@ void		render_scene(t_data *data);
 int			key_handle(int keysym, t_data *data);
 int			mouse_handle(int button, int x, int y, t_data *data);
 int			mouse_exit(t_data *data);
-int			keyboard_exit(int keysym, t_data *data);
+int			keyboard_exit(int keysym, void *data);
 void		init_camera(t_camera *camera);
 
 /*Events Utils*/
