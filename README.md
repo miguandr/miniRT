@@ -61,7 +61,11 @@ MiniRT implements a **ray casting renderer** entirely in C. For each pixel on sc
 
 ## Screenshots
 
-> Add your screenshots here — run `./miniRT tests/03_basic_shapes.rt` and capture the window.
+![Tunnel scene](img/Tunnel.png)
+![Molecular structure](img/Molecule.png)
+![Spaceship scene](img/Spaceship.png.png)
+![Sphere-Cylinder](img/Sphere_Cylinder.png.png)
+![Room scene](img/Room.png)
 
 ---
 
@@ -81,7 +85,7 @@ sudo apt install libxext-dev libx11-dev
 ### Build
 
 ```bash
-git clone https://github.com/miguandr/miniRT.git
+git clone https://github.com/YOUR_USERNAME/MiniRT.git
 cd MiniRT
 make
 ```

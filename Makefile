@@ -101,7 +101,7 @@ clean:
 	@if [ -d "$(MLX_DIR)" ]; then \
 		$(MAKE) -s -C $(MLX_DIR) clean 2>/dev/null; \
 	fi
-	@echo "\n💧 Clean done \n"
+	@echo "💧 Clean done \n"
 
 
 fclean:			clean
@@ -111,7 +111,7 @@ fclean:			clean
 	@if [ -d "$(MLX_DIR)" ]; then \
 		rm -rf $(MLX_DIR); \
 	fi
-	@echo "\n🧼 Fclean done \n"
+	@echo "🧼 Fclean done \n"
 
 re:		fclean all
 
