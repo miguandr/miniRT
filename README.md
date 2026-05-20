@@ -63,8 +63,8 @@ MiniRT implements a **ray casting renderer** entirely in C. For each pixel on sc
 
 ![Tunnel scene](img/Tunnel.png)
 ![Molecular structure](img/Molecule.png)
-![Spaceship scene](img/Spaceship.png.png)
-![Sphere-Cylinder](img/Sphere_Cylinder.png.png)
+![Spaceship scene](img/Spaceship.png)
+![Sphere-Cylinder](img/Sphere_Cylinder.png)
 ![Room scene](img/Room.png)
 
 ---
