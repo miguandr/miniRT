@@ -79,15 +79,15 @@ $(OBJ_DIR):
 $(MLX):
 	@echo "Making MLX..."
 	@if [ ! -d "$(MLX_DIR)" ]; then \
-		git clone $(MLX_REPO) $(MLX_DIR); \
+		git clone -q $(MLX_REPO) $(MLX_DIR); \
 	fi
 	@if [ ! -f "$(MLX)" ]; then \
-		$(MAKE) -C $(MLX_DIR); \
+		$(MAKE) -C $(MLX_DIR) 2>&1 | grep -E "^configure|error" || true; \
 	fi
-	
+
 $(LIBFT):
 	@echo "Making Libft..."
-	@make -C $(LIBFT_DIR)
+	@make -s -C $(LIBFT_DIR)
 
 $(NAME): $(OBJ)
 	@echo "Compiling MiniRT..."
