@@ -92,20 +92,16 @@ $(LIBFT):
 $(NAME): $(OBJ)
 	@echo "Compiling MiniRT..."
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(MLX) $(LIBFT) $(INC) $(LIBS)
-	@echo "\n------------------------------------------\n"
-	@echo "📟 MiniRT ready.\n"
-	@echo "------------------------------------------\n"
-      
+	@echo "\n📟 MiniRT ready.\n"
+
 clean:
 	@echo "Removing .o object files..."
 	@rm -rf $(OBJ_DIR)
 	@make -s clean -C $(LIBFT_DIR)
 	@if [ -d "$(MLX_DIR)" ]; then \
-		$(MAKE) -C $(MLX_DIR) clean; \
+		$(MAKE) -s -C $(MLX_DIR) clean 2>/dev/null; \
 	fi
-	@echo "\n------------------------------------------\n"
-	@echo "💧 Clean done \n"
-	@echo "------------------------------------------\n"
+	@echo "\n💧 Clean done \n"
 
 
 fclean:			clean
@@ -115,9 +111,7 @@ fclean:			clean
 	@if [ -d "$(MLX_DIR)" ]; then \
 		rm -rf $(MLX_DIR); \
 	fi
-	@echo "\n------------------------------------------\n"
-	@echo "🧼 Fclean done \n"
-	@echo "------------------------------------------\n"
+	@echo "\n🧼 Fclean done \n"
 
 re:		fclean all
 
