@@ -1,6 +1,7 @@
 # MiniRT — Ray Tracing Engine in C
 
-A fully functional 3D ray tracing engine built from scratch in C as part of the 42 School curriculum. Renders 3D scenes with geometric primitives, lighting, and real-time interactive controls — no external rendering libraries, no shortcuts.
+A fully functional 3D ray tracing engine built from scratch in C as part of the 42 School curriculum. Renders 3D scenes with geometric primitives, lighting, and real-time interactive controls.
+The use of external rendering libraries and shortcuts was strictly forbidden.
 
 ---
 
@@ -235,6 +236,6 @@ My partner ([@dtorretta](https://github.com/dtorretta)) implemented the geometri
 
 ## About
 
-Built as **MiniRT**, a mandatory project in the 42 School core curriculum (Rank 4). The goal is to implement a ray tracer from first principles, applying linear algebra, computer graphics theory, and systems programming in C — with zero tolerance for memory leaks or undefined behavior.
+Built as **MiniRT**, a mandatory project in the 42 School core curriculum (Rank 4). The goal is to implement a ray tracer from first principles, applying linear algebra, computer graphics theory, and systems programming in C, with zero tolerance for memory leaks or undefined behavior.
 
 **Skills demonstrated:** C, ray tracing, 3D math, X11/MLX, memory management, modular architecture, Makefile, event-driven programming.
