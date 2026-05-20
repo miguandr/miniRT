@@ -1,7 +1,7 @@
 # MiniRT — Ray Tracing Engine in C
 
 A fully functional 3D ray tracing engine built from scratch in C as part of the 42 School curriculum. Renders 3D scenes with geometric primitives, lighting, and real-time interactive controls.
-The use of external rendering libraries and shortcuts was strictly forbidden.
+The use of external rendering libraries and shortcuts was strictly forbidden. Just C and linear algebra.
 
 ---
 
