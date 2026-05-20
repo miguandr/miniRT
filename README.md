@@ -216,13 +216,20 @@ All standard utility functions are implemented from scratch: string manipulation
 
 ## My Role
 
-Built as a team of 2. I owned the **rendering pipeline and lighting system**:
+Built as a team of 2. I owned the **rendering pipeline, camera system, and lighting**:
 
-- **`render.c`** — Main ray tracing loop: for every pixel, calculates the world-space ray direction from the camera basis, tests all objects, selects the closest intersection, and dispatches to the color engine
-- **`color.c`** — Lighting model: computes ambient contribution, Lambertian diffuse shading (`dot(normal, light_dir)`), and shadow detection via a secondary ray; packs final RGB into a 32-bit TRGB value and writes it to the framebuffer
-- **Camera system** (`render_camera.c`) — Builds the orthonormal camera basis (`right`, `up`, `aim`) via cross products, converts FOV from degrees to radians, and computes per-pixel delta vectors that map 2D screen coordinates to 3D world-space rays
+**Core ray tracer**
+- **`render.c`** — Per-pixel ray generation, closest intersection selection across all object types, dispatch to the color engine
+- **`color.c` / `color_utils.c`** — Lighting model: ambient contribution, Lambertian diffuse shading (`dot(normal, light_dir)`), shadow ray casting with self-intersection bias; packs final RGB into 32-bit TRGB and writes to the framebuffer
 
-My partner implemented the geometric intersection solvers (quadratic formula for sphere/cylinder, plane equation) and the scene file parser.
+**Camera system**
+- **`render_camera.c`** — Orthonormal camera basis (`right`, `up`, `aim`) built via cross products; FOV→radians conversion; per-pixel delta vectors that map 2D screen coordinates to 3D world-space rays
+
+**Vector math & interactivity**
+- **`vector_utils.c` / `vector_utils_2.c`** — Full vector math library (add, subtract, dot, cross, normalize, scale)
+- **`events.c` / `events_utils.c` / `events_utils_2.c`** — Real-time keyboard/mouse controls for camera, objects, and light
+
+My partner ([@dtorretta](https://github.com/dtorretta)) implemented the geometric intersection solvers (sphere, plane, cylinder), the scene file parser, error handling, and test scenes.
 
 ---
 
