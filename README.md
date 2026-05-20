@@ -85,7 +85,7 @@ sudo apt install libxext-dev libx11-dev
 ### Build
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/MiniRT.git
+git clone https://github.com/miguandr/MiniRT.git
 cd MiniRT
 make
 ```
@@ -211,6 +211,18 @@ This basis maps pixel coordinates to world-space ray directions using the FOV to
 ### Custom libft
 
 All standard utility functions are implemented from scratch: string manipulation, memory operations, linked lists, `printf`, `get_next_line`, and floating-point parsing (`ft_atof`). No `libc` string or memory functions are used in the project itself.
+
+---
+
+## My Role
+
+Built as a team of 2. I owned the **rendering pipeline and lighting system**:
+
+- **`render.c`** — Main ray tracing loop: for every pixel, calculates the world-space ray direction from the camera basis, tests all objects, selects the closest intersection, and dispatches to the color engine
+- **`color.c`** — Lighting model: computes ambient contribution, Lambertian diffuse shading (`dot(normal, light_dir)`), and shadow detection via a secondary ray; packs final RGB into a 32-bit TRGB value and writes it to the framebuffer
+- **Camera system** (`render_camera.c`) — Builds the orthonormal camera basis (`right`, `up`, `aim`) via cross products, converts FOV from degrees to radians, and computes per-pixel delta vectors that map 2D screen coordinates to 3D world-space rays
+
+My partner implemented the geometric intersection solvers (quadratic formula for sphere/cylinder, plane equation) and the scene file parser.
 
 ---
 
